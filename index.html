@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Shop Item - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <!-- Navigation-->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">Adicta</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#!">All Products</a></li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex mx-3" id="carrito">
+                        <button class="btn btn-outline-light">
+                            <i class="bi-cart-fill me-1"></i>
+                            Cart
+                            <span id="contadorCarrito" class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </button>
+                    </form>
+                    <form class="d-flex" id="iniciarSesion">
+                        <button class="btn btn-outline-light" id="formIniciarSesion">
+                            <i class="bi bi-door-open"></i>
+                            iniciar sesion
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-4 px-lg-5  justify-content-end">
+
+
+                <div class="col-md-4 mx-3">
+                    <input type="text" class="form-control" id="usuarioId" placeholder="usuario" required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <input type="password" class="form-control" id="contrasenaId"
+                        aria-describedby="validationTooltipUsernamePrepend" placeholder="contraseña" required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <!--carrusel-->
+    <section class="container">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/pngtree-clothing-girl-fashion-snatch-image_16573.jpg" class="d-block w-100"
+                        alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/pngtree-clothing-girl-fashion-snatch-image_17004.jpg" class="d-block w-100"
+                        alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/pngtree-girl-creative-home-clothing-image_16570.jpg" class="d-block w-100"
+                        alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    <!--carrusel-->
+    <!-- Product section-->
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="images/adicta.jpg" alt="..." /></div>
+                <div class="col-md-6">
+                    <div class="small mb-1">SKU: BST-498</div>
+                    <h1 class="display-5 fw-bolder">AdictaSomos</h1>
+                    <div class="fs-5 mb-5">
+                        <span class="text-decoration-line-through">$45.00</span>
+                        <span>$40.00</span>
+                    </div>
+                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem
+                        quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis
+                        delectus ipsam minima ea iste laborum vero?</p>
+
+                    <div class="d-flex flex-column">
+                        <input class="form-control text-center me-3 mb-2" id="inputQuantity" type="num" value="1"
+                            style="max-width: 3rem" />
+                    </div>
+
+                    <div class="row listaSinNombre bg-ligth mt-3">
+                        <div class="col display-flex justify-center align-center">
+                            <ul id="ul" class="d-flex justify-content-center h-100 align-items-center flex-column">
+                                <h2>Factura</h2>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section>
+
+    </section>
+
+    <!-- Related items section-->
+    <section class="py-5 bg-ligth">
+        <div class="container px-4 px-lg-5 mt-5">
+            <h2 class="fw-bolder mb-4">Related products</h2>
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="images/adicta.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Fancy Product</h5>
+                                <!-- Product price-->
+                                $40.00 - $80.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <!--<button >lista</button>--> <a class="btn btn-outline-dark mt-auto"
+                                    id="listaArticulos">View options</a> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
+                        </div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="images/camisa.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Camisa</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">$20.00</span>
+                                $18.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto mensajeComprar">Add to
+                                    cart</a></div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
+                        </div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="images/pantalon.png" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Pantalon</h5>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">$50.00</span>
+                                $25.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center mensajeComprar"><a
+                                    class="btn btn-outline-dark mt-auto mensajeComprar2">Add to cart</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="images/zapatos.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Zapatos</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <!-- Product price-->
+                                $40.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><button class="btn btn-outline-dark mt-auto mensajeComprar3"
+                                    onclick="mensajeComprar()">Add to cart</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <article>
+            <div class="container px-4 px-lg-5 mt-5">
+                <h2 class="fw-bolder mb-4">E-comerce</h2>
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+                    id="tiendaAdicta">
+
+                </div>
+            </div>
+        </article>
+    </section>
+    <!-- +++Agregar articulos+++-->
+    <section id="articulosAgregados" class="py-5 bg-dark container mb-5">
+        <div class="container py-5">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-6 col-6">
+                    <form class="formStyle" id="formAgregarArticulos">
+                        <h3 class="py-3">Ingresos de mercaderia</h3>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Agregar nombre del producto.</label>
+                            <input type="text" class="form-control" id="nombreFormAgregar">
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Agregar el precio del producto</label>
+                            <input type="number" class="form-control" id="precioFormAgregar">
+                        </div>
+                        <button type="submit" class="btn btn-primary botonAgregar">agregar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <h2 class="text-center mb-4">Articulos agregados</h2>
+        <table id="productosAgregado" class="py-4">
+            <thead>
+                <tr>
+                    <th class="col-4">Id</th>
+                    <th class="col-4">Nombre</th>
+                    <th class="col-4">Precio</th>
+
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </section>
+    <!-- +++Agregar articulos+++-->
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p>
+        </div>
+    </footer>
+
+
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/iniciar.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/agregar.js"></script>
+    <script src="js/carrito.js"></script>
+
+
+</body>
+
+</html>
