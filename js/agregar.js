@@ -1,10 +1,8 @@
+
 let nombres = "";
 var nombresList = [];
 //agg articulos
 
-//eliminar articulos del dom
-let eliminarPorId = document.getElementById("eliminarArticulos");
-eliminarPorId.addEventListener("click", eliminarArticulos);
 
 document
   .getElementById("formAgregarArticulos")

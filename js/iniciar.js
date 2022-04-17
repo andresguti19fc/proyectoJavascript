@@ -9,7 +9,7 @@ function formIniciar() {
   if (usuarioId === "admin" && contrasenaId === "admin") {
     console.log("bienvenido");
     swal.fire("bienvenido", "", "success");
-    window.location.href = "./index.html";
+    window.location.href = "index.html";
   } else {
     console.log("usuario o contraseña incorrectos");
     swal.fire("usuario o contraseña incorrectos", "", "warning");
