@@ -115,7 +115,7 @@ function renderizarHtml() {
                           }
                       </p>
                       </div>
-                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-5">
                               <div class="text-center"><button class="btn btn-outline-dark mt-auto mensajeComprar" onclick="agregarAlCarrito(${i})" id="${
       JSON.parse(BASEDEDATOS)[i].id
     }" >Agregar al carrito</button></div>
