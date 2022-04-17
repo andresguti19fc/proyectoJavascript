@@ -44,7 +44,6 @@ body{
 }
 #productosAgregado tr,td{
     text-align: center;
-    border-bottom: 3px solid #fff;
     width: 80vw;
     
 }
@@ -97,5 +96,15 @@ th{
 }   .botonAgregar:focus{
     background: #333;
     color: #fff;
+}
+.mt {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+
+.si i {
+	font-size: 40px;
+	padding: 20px;
 }
 
