@@ -179,8 +179,5 @@ console.log();
 function eliminarDelCarrito(i) {
   carrito.splice(i, 1);
   carritoAdicta.innerHTML = "";
-  renderizarCarrito();
 }
-
-
 
