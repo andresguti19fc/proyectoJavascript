@@ -6,84 +6,84 @@ localStorage.setItem(
       nombre: "camisa",
       precio: 100,
       id: 1,
-      cantidad: 0,
+      cantidad: 0
     },
     {
       imagen: "pantalon.png",
       nombre: "pantalon",
       precio: 200,
       id: 2,
-      cantidad: 0,
+      cantidad: 0
     },
     {
       imagen: "zapatos.jpg",
       nombre: "zapatos",
       precio: 300,
       id: 3,
-      cantidad: 0,
+      cantidad: 0
     },
     {
       imagen: "camisa.jpg",
       nombre: "camisa",
       precio: 100,
-      id: 1,
-      cantidad: 0,
+      id: 4,
+      cantidad: 0
     },
     {
       imagen: "pantalon.png",
       nombre: "pantalon",
       precio: 200,
-      id: 2,
-      cantidad: 0,
+      id: 5,
+      cantidad: 0
     },
     {
       imagen: "zapatos.jpg",
       nombre: "zapatos",
       precio: 300,
-      id: 3,
-      cantidad: 0,
+      id: 6,
+      cantidad: 0
     },
     {
       imagen: "camisa.jpg",
       nombre: "camisa",
       precio: 100,
-      id: 1,
-      cantidad: 0,
+      id: 7,
+      cantidad: 0
     },
     {
       imagen: "pantalon.png",
       nombre: "pantalon",
       precio: 200,
-      id: 2,
-      cantidad: 0,
+      id: 8,
+      cantidad: 0
     },
     {
       imagen: "zapatos.jpg",
       nombre: "zapatos",
       precio: 300,
-      id: 3,
-      cantidad: 0,
+      id: 9,
+      cantidad: 0
     },
     {
       imagen: "camisa.jpg",
       nombre: "camisa",
       precio: 100,
-      id: 1,
-      cantidad: 0,
+      id: 10,
+      cantidad: 0
     },
     {
       imagen: "pantalon.png",
       nombre: "pantalon",
       precio: 200,
-      id: 2,
-      cantidad: 0,
+      id: 11,
+      cantidad: 0
     },
     {
       imagen: "zapatos.jpg",
       nombre: "zapatos",
       precio: 300,
-      id: 3,
-      cantidad: 0,
+      id: 12,
+      cantidad: 0
     },
   ])
 );
@@ -101,7 +101,7 @@ function renderizarHtml() {
           
           <div class="col-md-4 my-5">
               <div class="card h-100">
-              <img class="card-img-top" src="images/${
+              <img class="card-img-top img-fluid" src="images/${
                 JSON.parse(BASEDEDATOS)[i].imagen
               }" alt="..." />
                   <div class="card-body p-4">
@@ -116,7 +116,7 @@ function renderizarHtml() {
                       </p>
                       </div>
                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-5">
-                              <div class="text-center"><button class="btn btn-outline-dark mt-auto mensajeComprar" onclick="agregarAlCarrito(${i})" id="${
+        <div class="text-center"><button class="btn btn-outline-dark mt-auto mensajeComprar" onclick="agregarAlCarrito(${i})" id="${
       JSON.parse(BASEDEDATOS)[i].id
     }" >Agregar al carrito</button></div>
   
@@ -130,21 +130,57 @@ function renderizarHtml() {
   }
 }
 renderizarHtml();
-
+//agregar al carrito
 function agregarAlCarrito(i) {
-  let producto = BASEDEDATOS[id];
+  let producto = JSON.parse(BASEDEDATOS)[i];
   let existe = false;
   for (let i = 0; i < carrito.length; i++) {
+    
     if (carrito[i].id === producto.id) {
-      existe = true;
-      carrito[i].cantidad++;
-
-      console.log(carrito);
-    }
-    if (!existe) {
-      producto.cantidad = 1;
-      carrito.push(producto);
-      console.log(carrito);
+  existe = true;
+  carrito[i].cantidad++;
+  console.log(carrito);
     }
   }
+  if (!existe) {
+    producto.cantidad = 1;
+    carrito.push(producto);
+    
+  }
+  carritoAdicta.innerHTML = "";
+  renderizarCarrito()
+
 }
+let carritoAdicta = document.getElementById(`carritoAdicta`);
+
+carritoAdicta.addEventListener("click", renderizarCarrito);
+function renderizarCarrito() {
+  for (let i = 0; i < carrito.length; i++) {
+    carritoAdicta.innerHTML += 
+    `
+
+    
+    <tr>
+    <td>${carrito[i].nombre}</td>
+    <td>${carrito[i].cantidad}</td>
+    <td>${carrito[i].precio}</td>
+    <td>${carrito[i].cantidad * carrito[i].precio}</td>
+    <td><button class="btn btn-outline-danger" onclick="eliminarDelCarrito(${i})" id="${carrito[i].id}">Eliminar</button></td>
+    
+    </tr>
+    </tbody>
+    
+    `;
+       
+  }
+}
+console.log();
+//necesito terminar de hacer el carrito de compras
+function eliminarDelCarrito(i) {
+  carrito.splice(i, 1);
+  carritoAdicta.innerHTML = "";
+  renderizarCarrito();
+}
+
+
+
