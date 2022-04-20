@@ -166,6 +166,7 @@ function renderizarCarrito() {
     <td>${carrito[i].precio}</td>
     <td>${carrito[i].cantidad * carrito[i].precio}</td>
     <td><button class="btn btn-outline-danger" onclick="eliminarDelCarrito(${i})" id="${carrito[i].id}">Eliminar</button></td>
+    <td><button class="btn btn-outline-dark" onclick="comprarCarrito(${i})" id="${carrito[i].id}">Comprar</button></td>
     
     </tr>
     </tbody>
@@ -180,4 +181,12 @@ function eliminarDelCarrito(i) {
   carrito.splice(i, 1);
   carritoAdicta.innerHTML = "";
 }
+
+function comprarCarrito(i) {
+ swal.fire("Gracias por comprar", `total a pagar: ${carrito[i].cantidad * carrito[i].precio}$`, "success");
+  carrito.splice(i, 1);
+  carritoAdicta.innerHTML = "";
+}
+
+
 
