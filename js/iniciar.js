@@ -1,17 +1,30 @@
 let formIniciarSesion = document.getElementById("formIniciarSesion");
-formIniciarSesion.addEventListener("click", formIniciar);
 
-function formIniciar() {
+formIniciarSesion.addEventListener("click", function(e) {
+  e.preventDefault();
   let usuarioId = document.getElementById("usuarioId").value;
   let contrasenaId = document.getElementById("contrasenaId").value;
+
+
   sessionStorage.setItem("usuario", usuarioId);
   sessionStorage.setItem("contrasena", contrasenaId);
-  if (usuarioId === "admin" && contrasenaId === "admin") {
+  let usuario = sessionStorage.getItem("usuario");
+  let contrasena = sessionStorage.getItem("contrasena");
+ 
+  if (usuario !== "" && contrasena !== "") {
     console.log("bienvenido");
+    
     swal.fire("bienvenido", "", "success");
-    window.location.href = "index.html";
-  } else {
-    console.log("usuario o contraseña incorrectos");
-    swal.fire("usuario o contraseña incorrectos", "", "warning");
+    
+  } 
+  else {
+    console.log("error");
+    swal.fire("Usuario o contraseña incorrectos", "", "error");
   }
-}
+});
+
+/* function formIniciar(e) {   
+  e.preventDefault();
+  
+  
+}  */

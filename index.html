@@ -65,13 +65,13 @@
 
 
                 <div class="col-md-4 mx-1 my-1 input-group-sm flex-nowrap">
-                    <input type="text" class="form-control w-80 bg-transparent border-none" id="usuarioId" placeholder="usuario" required>
+                    <input type="text" class="form-control w-80 bg-transparent border-none text-light" id="usuarioId" placeholder="usuario" required>
                     <div class="valid-tooltip">
                         Looks good!
                     </div>
                 </div>
                 <div class="col-md-4 mx-1 my-1 input-group-sm">
-                    <input type="password" class="form-control w-80 bg-transparent" id="contrasenaId"
+                    <input type="password" class="form-control w-8 bg-transparent text-white" id="contrasenaId"
                         aria-describedby="validationTooltipUsernamePrepend" placeholder="contraseña" required>
                     <div class="valid-tooltip">
                         Looks good!
@@ -134,8 +134,9 @@
 
                     <div class="row listaSinNombre bg-ligth mt-3">
                         <div class="col display-flex justify-center align-center">
+                            <h2>Factura</h2>
                             <ul id="ul" class="d-flex justify-content-center h-100 align-items-center flex-column">
-                                <h2>Factura</h2>
+                                
                             </ul>
                         </div>
                     </div>
@@ -153,117 +154,7 @@
 
     <!-- Related items section-->
     <section class="py-5 bg-ligth">
-        <div class="container px-4 px-lg-5 mt-5">
-            <h2 class="fw-bolder mb-4">Related products</h2>
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="images/adicta.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Fancy Product</h5>
-                                <!-- Product price-->
-                                $40.00 - $80.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                                <!--<button >lista</button>--> <a class="btn btn-outline-dark mt-auto"
-                                    id="listaArticulos">View options</a> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
-                        </div>
-                        <!-- Product image-->
-                        <img class="card-img-top" src="images/camisa.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Camisa</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$20.00</span>
-                                $18.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto mensajeComprar">Add to
-                                    cart</a></div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
-                        </div>
-                        <!-- Product image-->
-                        <img class="card-img-top" src="images/pantalon.png" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Pantalon</h5>
-                                <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$50.00</span>
-                                $25.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center mensajeComprar"><a
-                                    class="btn btn-outline-dark mt-auto mensajeComprar2">Add to cart</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="images/zapatos.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Zapatos</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                $40.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><button class="btn btn-outline-dark mt-auto mensajeComprar3"
-                                    onclick="mensajeComprar()">Add to cart</button></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <article>
             <div class="container px-4 px-lg-5 mt-5">
                 <h2 class="fw-bolder mb-4 bg-light text-center py-3">E-comerce</h2>
