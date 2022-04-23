@@ -61,7 +61,7 @@ th{
 }
 
 
-#nombreFormAgregar, #precioFormAgregar{
+#nombreFormAgregar, #precioFormAgregar, #imagenFormAgregar{
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;

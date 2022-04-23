@@ -1,9 +1,11 @@
 /* articulos de la tienda */
 class Articulo {
-  constructor(id, prenda, precio) {
-    this.id = id;
+  constructor(imagen, prenda, precio, id, cantidad) {
+    this.imagen = imagen;
     this.prenda = prenda;
     this.precio = parseInt(precio);
+    this.id = id;
+    this.cantidad = cantidad;
   }
 
   precioTotal() {
@@ -13,7 +15,7 @@ class Articulo {
 const prendaCamisa = new Articulo(1, "camisa", 10);
 const prendaPantalon = new Articulo(2, "pantalon", 20);
 const prendaZapatos = new Articulo(3, "zapatos", 30);
-function listaArticulosAgregados() {
+/*function listaArticulosAgregados() {
   for (let producto of nombresList) {
     let contenedor = document.createElement("ul");
     contenedor.innerHTML = `<li><h3>prenda: ${producto.prenda}</h3>
@@ -21,9 +23,9 @@ function listaArticulosAgregados() {
     document.body.append(contenedor);
   }
 }
-let listaArticulos = document.querySelector("#listaArticulos");
+ let listaArticulos = document.querySelector("#listaArticulos");
 listaArticulos.addEventListener("click", listaArticulosAgregados);
-
+console.log(listaArticulos);
 let comprar = document.querySelector(".mensajeComprar");
 let comprar2 = document.querySelector(".mensajeComprar2");
 let comprar3 = document.querySelector(".mensajeComprar3");
@@ -45,3 +47,4 @@ comprar3.addEventListener("click", () => {
   contador++;
   contadorCarrito.textContent = contador;
 });
+ */

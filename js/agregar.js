@@ -1,6 +1,6 @@
 
 let nombres = "";
-var nombresList = [];
+let nombresList = [];
 //agg articulos
 
 
@@ -11,19 +11,19 @@ document
     let nombre = document.getElementById("nombreFormAgregar").value;
     let precio = document.getElementById("precioFormAgregar").value;
 
-    if (nombre === "" || precio === "") {
+    (nombre === "" || precio === "") ? swal.fire("Por favor, ingrese todos los datos.", "", "warning") : swal.fire("Articulo agregado", "", "success");
+
+    /* if (nombre === "" || precio === "") {
       swal.fire("Por favor, ingrese todos los datos.", "", "warning");
     } else {
-      swal.fire("Articulo agregado", "", "success");
+      swal.fire("Articulo agregado", "", "success"); */
       const articulosNombres = {
         nombre: nombre,
         precio: precio,
       };
       nombresList.push(articulosNombres);
-      console.log(nombresList);
       mostrarArticulosenHtml();
       document.getElementById("formAgregarArticulos").reset();
-    }
   });
 
 function mostrarArticulosenHtml() {
@@ -38,25 +38,6 @@ function mostrarArticulosenHtml() {
     <td><button class="btn btn-outline-danger" onclick="eliminarArticulos2(${i})" id="${nombresList[i].nombre}">Eliminar</button></td>
     </tr>
     `;
-    
-    
-    //se que no le gusta que comente el codigo pero es para notar la diferencia, me ahorre codigo haciendolo de la mnaera que ud me enseño.
-    
-    /* let tr = document.createElement("tr");
-    tr.setAttribute("id", `${i}`);
-    let tdNombre = document.createElement("td");
-    let tdPrecio = document.createElement("td");
-    let tdId = document.createElement("td");
-    let tdEliminar = document.createElement("td");
-    tdNombre.innerHTML += nombresList[i].nombre;
-    tdPrecio.innerHTML += nombresList[i].precio;
-    tdId.innerHTML += i + 1;
-    tdEliminar.innerHTML += `<button class="btn btn-danger" id="btnEliminar" onclick="eliminarArticulos2(${i})">Eliminar</button>`;
-    tr.appendChild(tdId);
-    tr.appendChild(tdNombre);
-    tr.appendChild(tdPrecio);
-    tr.appendChild(tdEliminar);
-    tbody.appendChild(tr); */
   }
 }
 
@@ -67,3 +48,22 @@ function eliminarArticulos2(i) {
   mostrarArticulosenHtml();
 }
 
+// agregar articulos
+
+/* let btnAgregarArticulo = document.getElementById("btnAgregarArticulo");
+btnAgregarArticulo.addEventListener("click", () => {
+  let nombre = document.getElementById("inputAgregarArticulo").value;
+  let precio = document.getElementById("inputAgregarPrecio").value;
+  let imagen = document.getElementById("inputAgregarArticulo").value;
+  let cantidad = document.getElementById("inputAgregarCantidad").value;
+  let id = document.getElementById("inputAgregarId").value;
+  let producto = {
+    nombre: nombre,
+    precio: precio,
+    imagen: imagen,
+    cantidad: cantidad,
+    id: id,
+  };
+  mostrarArticulosenHtml();
+ 
+}); */
