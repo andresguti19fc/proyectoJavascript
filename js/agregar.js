@@ -1,10 +1,6 @@
-
+/* 
 let nombres = "";
-let nombresList = [];
-//agg articulos
-
-
-document
+let nombresList = [];document
   .getElementById("formAgregarArticulos")
   .addEventListener("submit", (e) => {
     e.preventDefault();
@@ -12,11 +8,6 @@ document
     let precio = document.getElementById("precioFormAgregar").value;
 
     (nombre === "" || precio === "") ? swal.fire("Por favor, ingrese todos los datos.", "", "warning") : swal.fire("Articulo agregado", "", "success");
-
-    /* if (nombre === "" || precio === "") {
-      swal.fire("Por favor, ingrese todos los datos.", "", "warning");
-    } else {
-      swal.fire("Articulo agregado", "", "success"); */
       const articulosNombres = {
         nombre: nombre,
         precio: precio,
@@ -47,8 +38,7 @@ function eliminarArticulos2(i) {
   nombresList.splice(i, 1);
   mostrarArticulosenHtml();
 }
-
-// agregar articulos
+ */
 
 /* let btnAgregarArticulo = document.getElementById("btnAgregarArticulo");
 btnAgregarArticulo.addEventListener("click", () => {

@@ -1,5 +1,6 @@
-localStorage.setItem("BASEDEDATOS", JSON.stringify
-([
+
+let bbdd =  
+  [
     {
       imagen: "camisa.jpg",
       nombre: "camisa",
@@ -84,9 +85,8 @@ localStorage.setItem("BASEDEDATOS", JSON.stringify
       id: 12,
       cantidad: 0,
     },
-  ])
-);
-
+  ];
+  localStorage.setItem("BASEDEDATOS", JSON.stringify(bbdd));
 class Basededatos {
   constructor(imagen, nombre, precio, id, cantidad) {
     this.imagen = imagen;
@@ -102,22 +102,22 @@ let BASEDEDATOS = localStorage.getItem("BASEDEDATOS");
 let BBDD = JSON.parse(BASEDEDATOS);
 
 let carrito = [];
-/*   */
 let total2 = 0;
 function renderizarHtml() {
   let tiendaAdicta = document.getElementById("tiendaAdicta");
-
+  
   for (let i = 0; i < BBDD.length; i++) {
+    let { imagen, nombre, precio } = BBDD[i]; //destrructuracion
     tiendaAdicta.innerHTML += `
           
           <div class="col-md-4 my-5">
               <div class="card h-100">
-              <img class="card-img-top img-fluid" src="images/${BBDD[i].imagen}" alt="..." />
+              <img class="card-img-top img-fluid" src="images/${imagen}" alt="..." />
                   <div class="card-body p-4">
                   <div class="text-center">
-                      <h5 class="card-title">${BBDD[i].nombre}</h5>
+                      <h5 class="card-title">${nombre}</h5>
                       <p class="card-text">
-                          <strong>precio:</strong> ${BBDD[i].precio}
+                          <strong>precio:</strong> ${precio}
                       </p>
                       </div>
                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-5">
@@ -133,13 +133,13 @@ function renderizarHtml() {
   }
 }
 renderizarHtml();
-//agregar al carrito
 function agregarAlCarrito(i) {
+
   let producto = BBDD[i];
   let existe = false;
   for (let i = 0; i < carrito.length; i++) {
-
-    if (carrito[i].id === producto.id) {
+let { id } = carrito[i];
+    if (id === producto.id) {
       existe = true;
       carrito[i].cantidad++;
     }
@@ -156,58 +156,55 @@ let carritoAdicta = document.getElementById(`carritoAdicta`);
 carritoAdicta.addEventListener("click", renderizarCarrito);
 function renderizarCarrito() {
   for (let i = 0; i < carrito.length; i++) {
-    let precioTotalprenda = carrito[i].cantidad * carrito[i].precio;
+    let { nombre, precio, cantidad } = carrito[i];
+    let precioTotalprenda = cantidad * precio;
     carritoAdicta.innerHTML += `
     <tr>
-    <td>${carrito[i].nombre}</td>
-    <td>${carrito[i].cantidad}</td>
-    <td>${carrito[i].precio}</td>
+    <td>${nombre}</td>
+    <td>${cantidad}</td>
+    <td>${precio}</td>
     <td id="">${precioTotalprenda}</td>
-    <td><button class="btn btn-outline-danger" onclick="eliminarDelCarrito(${i})" id="${
-      carrito[i].id
-    }">Eliminar</button></td>
-    <td><button class="btn btn-outline-dark" onclick="comprarCarrito(${i})" id="${carrito[i].id}">Comprar</button></td>   
+    <td><button class="btn btn-outline-danger" onclick="eliminarDelCarrito(${i})" id="${id}">Eliminar</button></td>
+    <td><button class="btn btn-outline-dark" onclick="comprarCarrito(${i})" id="${id}">Comprar</button></td>   
     </tr>
     </tbody>
 `;
 }
 }
-//necesito terminar de hacer el carrito de compras
 function eliminarDelCarrito(i) {
   carrito.splice(i, 1);
   carritoAdicta.innerHTML = "";
 }
 
 function comprarCarrito(i) {
-  swal.fire("Gracias por comprar",`total a pagar: ${carrito[i].cantidad * carrito[i].precio}$`, "success");
+  let { cantidad, precio, } = carrito[i];
+  let totalPrenda = cantidad * precio;
+  swal.fire("Gracias por comprar",`total a pagar: ${totalPrenda}$`, "success");
   carrito.splice(i, 1);
   carritoAdicta.innerHTML = "";
 }
-
 let btnAgregarArticulo = document.getElementById("btnFormAgregar");
 btnAgregarArticulo.addEventListener("click", agregar);
+
  function agregar(nombre, precio, imagen, id, cantidad) {
    nombre.preventDefault();
+  
    let imagenInput = document.getElementById("imagenFormAgregar").value;
    imagen = imagenInput;
    let inputAgregarArticulo = document.getElementById("nombreFormAgregar").value;
    nombre=inputAgregarArticulo;   
    let inputAgregarPrecio = document.getElementById("precioFormAgregar").value;
-    precio=inputAgregarPrecio;/* 
-    let inputAgregarCantidad = document.getElementById("inputAgregarCantidad").value; */
-    cantidad=0;/* 
-    let inputAgregarId = document.getElementById("inputAgregarId").value; */
+    precio=inputAgregarPrecio;
+    cantidad=0;
+    (nombre === "" || precio === "" || imagen === "") ? swal.fire("debe llenar todos los campos", "", "warning") : swal.fire("listo. su producto fue agregado.", "", "success");
     id=BBDD.length + 1;
   let nuevoArticulo = new Basededatos(imagen, nombre, precio, id, cantidad);
-  BBDD.push(nuevoArticulo); 
+  BBDD = [...BBDD, nuevoArticulo]; //spread operator
  
   tiendaAdicta.innerHTML = "";
  renderizarHtml();
  localStorage.setItem("BASEDEDATOS", JSON.stringify(BBDD)); 
-}console.log(BBDD);
-
-
-
+}
 
 
 

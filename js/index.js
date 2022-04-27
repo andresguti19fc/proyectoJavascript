@@ -1,5 +1,6 @@
 /* articulos de la tienda */
-class Articulo {
+
+/*class Articulo {
   constructor(imagen, prenda, precio, id, cantidad) {
     this.imagen = imagen;
     this.prenda = prenda;
@@ -15,7 +16,10 @@ class Articulo {
 const prendaCamisa = new Articulo(1, "camisa", 10);
 const prendaPantalon = new Articulo(2, "pantalon", 20);
 const prendaZapatos = new Articulo(3, "zapatos", 30);
-/*function listaArticulosAgregados() {
+
+
+
+function listaArticulosAgregados() {
   for (let producto of nombresList) {
     let contenedor = document.createElement("ul");
     contenedor.innerHTML = `<li><h3>prenda: ${producto.prenda}</h3>

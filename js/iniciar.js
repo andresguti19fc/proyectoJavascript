@@ -12,22 +12,5 @@ formIniciarSesion.addEventListener("click", function(e) {
   let contrasena = sessionStorage.getItem("contrasena");
  
   const inicioDeSession = (usuario !== "" && isNaN("usuario") && contrasena !== "" && !isNaN(contrasena)) ? true : false;
-  inicioDeSession ? swal.fire("bienvenido", "", "success") : swal.fire("error", "", "error")
-
-  /* if (usuario !== "" && contrasena !== "") {
-    console.log("bienvenido");
-    
-    swal.fire("bienvenido", "", "success");
-    
-  } 
-  else {
-    console.log("error");
-    swal.fire("Usuario o contraseña incorrectos", "", "error");
-  } */
+  inicioDeSession ? swal.fire("bienvenido", "", "success") : swal.fire("error", "", "error"); // operador ternario
 });
-
-/* function formIniciar(e) {   
-  e.preventDefault();
-  
-  
-}  */
