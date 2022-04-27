@@ -96,7 +96,8 @@ class Basededatos {
     this.cantidad = cantidad;
   }
 }
-
+ swal.fire("Gracias por su compra", "", "success");
+ 
 
 let BASEDEDATOS = localStorage.getItem("BASEDEDATOS");
 let BBDD = JSON.parse(BASEDEDATOS);
@@ -138,8 +139,7 @@ function agregarAlCarrito(i) {
   let producto = BBDD[i];
   let existe = false;
   for (let i = 0; i < carrito.length; i++) {
-let { id } = carrito[i];
-    if (id === producto.id) {
+    if (carrito[i].id === producto.id) {
       existe = true;
       carrito[i].cantidad++;
     }
@@ -156,7 +156,7 @@ let carritoAdicta = document.getElementById(`carritoAdicta`);
 carritoAdicta.addEventListener("click", renderizarCarrito);
 function renderizarCarrito() {
   for (let i = 0; i < carrito.length; i++) {
-    let { nombre, precio, cantidad } = carrito[i];
+    let { nombre, precio, cantidad, id } = carrito[i];
     let precioTotalprenda = cantidad * precio;
     carritoAdicta.innerHTML += `
     <tr>
@@ -168,6 +168,7 @@ function renderizarCarrito() {
     <td><button class="btn btn-outline-dark" onclick="comprarCarrito(${i})" id="${id}">Comprar</button></td>   
     </tr>
     </tbody>
+
 `;
 }
 }
@@ -196,7 +197,7 @@ btnAgregarArticulo.addEventListener("click", agregar);
    let inputAgregarPrecio = document.getElementById("precioFormAgregar").value;
     precio=inputAgregarPrecio;
     cantidad=0;
-    (nombre === "" || precio === "" || imagen === "") ? swal.fire("debe llenar todos los campos", "", "warning") : swal.fire("listo. su producto fue agregado.", "", "success");
+    (nombre === "" || precio === "" || imagen === "") ? swal.fire("debe llenar todos los campos", "", "warning") : swal.fire("listo. su producto fue agregado.", "", "success");  
     id=BBDD.length + 1;
   let nuevoArticulo = new Basededatos(imagen, nombre, precio, id, cantidad);
   BBDD = [...BBDD, nuevoArticulo]; //spread operator
