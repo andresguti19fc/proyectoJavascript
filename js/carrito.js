@@ -96,17 +96,13 @@ class Basededatos {
     this.cantidad = cantidad;
   }
 }
- swal.fire("Gracias por su compra", "", "success");
- 
-
 let BASEDEDATOS = localStorage.getItem("BASEDEDATOS");
 let BBDD = JSON.parse(BASEDEDATOS);
-
+/*** pintar los articulos  en el html ***/
 let carrito = [];
 let total2 = 0;
 function renderizarHtml() {
   let tiendaAdicta = document.getElementById("tiendaAdicta");
-  
   for (let i = 0; i < BBDD.length; i++) {
     let { imagen, nombre, precio } = BBDD[i]; //destrructuracion
     tiendaAdicta.innerHTML += `
@@ -133,15 +129,19 @@ function renderizarHtml() {
           `;
   }
 }
-renderizarHtml();
-function agregarAlCarrito(i) {
 
-  let producto = BBDD[i];
+renderizarHtml();
+/*** pintar los articulos  en el html ***/
+
+/*** numero de articulos agregados ***/
+function agregarAlCarrito(i) {
+let producto = BBDD[i];
   let existe = false;
   for (let i = 0; i < carrito.length; i++) {
     if (carrito[i].id === producto.id) {
       existe = true;
       carrito[i].cantidad++;
+      contadorCarritoPagarTodo.innerHTML = carrito[i].cantidad;
     }
   }
   if (!existe) {
@@ -151,7 +151,9 @@ function agregarAlCarrito(i) {
   carritoAdicta.innerHTML = "";
   renderizarCarrito();
 }
+/*** numero de articulos agregados ***/
 
+/*** pintar los articulos agregados en el html ***/
 let carritoAdicta = document.getElementById(`carritoAdicta`);
 carritoAdicta.addEventListener("click", renderizarCarrito);
 function renderizarCarrito() {
@@ -168,61 +170,84 @@ function renderizarCarrito() {
     <td><button class="btn btn-outline-dark" onclick="comprarCarrito(${i})" id="${id}">Comprar</button></td>   
     </tr>
     </tbody>
-
 `;
+contadorCarrito.innerHTML = carrito.length;
 }
 }
+/*** pintar los articulos agregados en el html ***/
+
+/*** eliminar articulo agregado ***/
 function eliminarDelCarrito(i) {
   carrito.splice(i, 1);
   carritoAdicta.innerHTML = "";
 }
+/*** eliminar articulo agregado ***/
 
+/*** comprar ***/
 function comprarCarrito(i) {
-  let { cantidad, precio, } = carrito[i];
-  let totalPrenda = cantidad * precio;
-  swal.fire("Gracias por comprar",`total a pagar: ${totalPrenda}$`, "success");
+  let { cantidad, precio, } = carrito[i]; // destrructuracion
+  var totalPrenda = cantidad * precio;
+  total2 += totalPrenda;
+  swal.fire("Gracias por comprar",`total a pagar: ${totalPrenda}$`, "success"); 
   carrito.splice(i, 1);
   carritoAdicta.innerHTML = "";
 }
+/*** comprar ***/
+
+/*** ingreso de mercaderia ***/
 let btnAgregarArticulo = document.getElementById("btnFormAgregar");
 btnAgregarArticulo.addEventListener("click", agregar);
-
- function agregar(nombre, precio, imagen, id, cantidad) {
+function agregar(nombre, precio, imagen, id, cantidad) {
    nombre.preventDefault();
-  
-   let imagenInput = document.getElementById("imagenFormAgregar").value;
-   imagen = imagenInput;
-   let inputAgregarArticulo = document.getElementById("nombreFormAgregar").value;
-   nombre=inputAgregarArticulo;   
-   let inputAgregarPrecio = document.getElementById("precioFormAgregar").value;
-    precio=inputAgregarPrecio;
-    cantidad=0;
-    (nombre === "" || precio === "" || imagen === "") ? swal.fire("debe llenar todos los campos", "", "warning") : swal.fire("listo. su producto fue agregado.", "", "success");  
-    id=BBDD.length + 1;
+  let imagenInput = document.getElementById("imagenFormAgregar").value;
+    let inputAgregarArticulo = document.getElementById("nombreFormAgregar").value;
+    let inputAgregarPrecio = document.getElementById("precioFormAgregar").value;
+   imagen = imagenInput; 
+   nombre=inputAgregarArticulo;
+   precio=inputAgregarPrecio;
+cantidad=0;
+id=BBDD.length + 1;
+    (nombre === "" || precio === "" || imagen === "") ? swal.fire("debe llenar todos los campos", "", "warning") : swal.fire("listo. su producto fue agregado.", "", "success"); // operador ternario
   let nuevoArticulo = new Basededatos(imagen, nombre, precio, id, cantidad);
   BBDD = [...BBDD, nuevoArticulo]; //spread operator
- 
-  tiendaAdicta.innerHTML = "";
+ tiendaAdicta.innerHTML = "";
  renderizarHtml();
  localStorage.setItem("BASEDEDATOS", JSON.stringify(BBDD)); 
 }
+/*** ingreso de mercaderia ***/
 
+/*** datos de la compra ***/
+let pagarTodo = document.getElementById("pagarTodo");
+pagarTodo.addEventListener("click", pagarTodoCarrito);
+let mostrarPago = document.getElementById("mostrarPago");
+function pagarTodoCarrito() {
+  const DateTime = luxon.DateTime;
+  const date = DateTime.local();
+  const hora = DateTime.local().hour;
+  const minuto = DateTime.local().minute;
+  const segundo = DateTime.local().second;
 
+  swal.fire("Gracias por comprar",`total a pagar: ${total2}$`, "success");
+  carrito.splice(0, carrito.length);
+  mostrarPago.innerHTML = `
+  <div class="container px-4 px-lg-5 mt-5">
+  <div class="row gx-4 gx-lg-5 align-itemns-center justify-content-center">
+  <div class="col-md-12">
+  <div class="alert alert-dark" role="alert">
+  <h4 class="alert-heading">Gracias por comprar</h4>
+  <p>total a pagar: ${total2}$</p>
+  <p>fecha: ${date.toFormat('dd/MM/yyyy')}</p>
+  <p>hora: ${hora}:${minuto}:${segundo}</p>
+  <div>
+  <h5>articulos en el carrito:</h5>  
+  </div>
+  </div>
+  </div>
+  </div>
 
-
-
-
-
-/* let botonAgregarArticulo = document.getElementById("botonAgregarArticulo");
-botonAgregarArticulo.addEventListener("click", agregarArticulo);
-function agregarArticulo() {
-  let nombre = document.getElementById("nombre").value;
-  let precio = document.getElementById("precio").value;
-  let imagen = document.getElementById("imagen").value;
-  let id = document.getElementById("id").value;
-  let cantidad = document.getElementById("cantidad").value;
-  let nuevoArticulo = new Basededatos(imagen, nombre, precio, id, cantidad);
-  BBDD.push(nuevoArticulo);
-  localStorage.setItem("BASEDEDATOS", JSON.stringify(BBDD));
-  renderizarHtml();
-} */
+  `;
+  carritoAdicta.innerHTML = "";
+}
+/*** datos de la compra ***/
+let contadorCarrito = document.getElementById("contadorCarrito");
+let contadorCarritoPagarTodo = document.getElementById("contadorCarritoPagarTodo");
