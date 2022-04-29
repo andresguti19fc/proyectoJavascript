@@ -141,7 +141,7 @@ let producto = BBDD[i];
     if (carrito[i].id === producto.id) {
       existe = true;
       carrito[i].cantidad++;
-      contadorCarritoPagarTodo.innerHTML = carrito[i].cantidad;
+      contadorCarritoPagarTodo.innerHTML = carrito.reduce((accum, producto) => accum + producto.cantidad, 0);
     }
   }
   if (!existe) {
@@ -172,10 +172,13 @@ function renderizarCarrito() {
     </tbody>
 `;
 contadorCarrito.innerHTML = carrito.length;
+total2 = carrito.reduce((accum, producto) => accum + producto.precio, 0);
+console.log(total2);
 }
 }
 /*** pintar los articulos agregados en el html ***/
 
+  
 /*** eliminar articulo agregado ***/
 function eliminarDelCarrito(i) {
   carrito.splice(i, 1);
@@ -187,7 +190,7 @@ function eliminarDelCarrito(i) {
 function comprarCarrito(i) {
   let { cantidad, precio, } = carrito[i]; // destrructuracion
   var totalPrenda = cantidad * precio;
-  total2 += totalPrenda;
+  
   swal.fire("Gracias por comprar",`total a pagar: ${totalPrenda}$`, "success"); 
   carrito.splice(i, 1);
   carritoAdicta.innerHTML = "";
